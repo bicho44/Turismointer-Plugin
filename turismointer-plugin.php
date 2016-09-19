@@ -131,7 +131,21 @@ function show_categoria($taxonomies)
                 )
             )
     );
-
+    $taxonomies[] = array(
+        'post_type' => 'imgd_programas'
+        ,'name' => 'imgd_programa_pais'
+        ,'show_admin_column' => true
+        ,'configuration' => array(
+            'hierarchical' => false
+            ,'labels' => piklist('taxonomy_labels', __('Pais', 'imgd'))
+            ,'hide_meta_box' => true
+            ,'show_ui' => true
+            ,'query_var' => true
+            ,'rewrite' => array(
+                    'slug' => __('pais', 'imgd')
+                )
+            )
+    );
     return $taxonomies;
 
 }
