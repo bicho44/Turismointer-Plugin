@@ -17,8 +17,8 @@ define( 'SHOWS_PLUGIN_PATH', plugin_dir_url( __FILE__ ) );
 /**
  * Check if Piklist is activated and installed
  */
-add_action('init', 'turimo_init_function');
-function casino_init_function()
+add_action('init', 'turismo_init_function');
+function turismo_init_function()
 {
     if(is_admin())
     {
@@ -34,7 +34,7 @@ function casino_init_function()
 /**
  * Loading Translation
  */
-function casino_plugin_init() {
+function turismo_plugin_init() {
     $plugin_dir = basename(dirname(__FILE__)).'/languages';
     //echo '<h1>'.$plugin_dir.'</h1>';
     load_plugin_textdomain( 'imgd', false, $plugin_dir );
@@ -47,14 +47,14 @@ add_action('plugins_loaded', 'turismo_plugin_init');
  * @name: Casino
  * @dependencies: Piklist
  */
-add_filter('piklist_post_types', 'casino_post_type');
+add_filter('piklist_post_types', 'turismo_post_type');
 
-function casino_post_type($post_types)
+function turismo_post_type($post_types)
 {
     $singular = 'Programa';
     $plural = 'Programas';
 
-    $post_types['imgd_programas'] = array(
+    $post_types['imgd_programa'] = array(
         'labels' => array(
                 'name'               => _x( $plural, 'post type general name', 'imgd' ),
                 'singular_name'      => _x( $singular, 'post type singular name', 'imgd' ),
@@ -108,7 +108,7 @@ function casino_post_type($post_types)
 /**
  * Definir Taxonomía del Custom Post Type
  *
- * @name: IMGD Categoria del Show
+ * @name: IMGD Ciudad y Pais del Programa
  * @dependencies: Piklist
  */
 
@@ -117,35 +117,20 @@ add_filter('piklist_taxonomies', 'show_categoria');
 function show_categoria($taxonomies)
 {
     $taxonomies[] = array(
-        'post_type' => 'imgd_programas'
-        ,'name' => 'imgd_programa_ciudad'
+        'post_type' => 'imgd_programa'
+        ,'name' => 'imgd_programa_ubicacion'
         ,'show_admin_column' => true
         ,'configuration' => array(
-            'hierarchical' => false
-            ,'labels' => piklist('taxonomy_labels', __('Ciudad', 'imgd'))
-            ,'hide_meta_box' => true
+            'hierarchical' => true
+            ,'labels' => piklist('taxonomy_labels', __('Ubicación', 'imgd'))
             ,'show_ui' => true
             ,'query_var' => true
             ,'rewrite' => array(
-                    'slug' => __('ciudad', 'imgd')
+                    'slug' => __('ubicacion', 'imgd')
                 )
             )
     );
-    $taxonomies[] = array(
-        'post_type' => 'imgd_programas'
-        ,'name' => 'imgd_programa_pais'
-        ,'show_admin_column' => true
-        ,'configuration' => array(
-            'hierarchical' => false
-            ,'labels' => piklist('taxonomy_labels', __('Pais', 'imgd'))
-            ,'hide_meta_box' => true
-            ,'show_ui' => true
-            ,'query_var' => true
-            ,'rewrite' => array(
-                    'slug' => __('pais', 'imgd')
-                )
-            )
-    );
+    
     return $taxonomies;
 
 }
