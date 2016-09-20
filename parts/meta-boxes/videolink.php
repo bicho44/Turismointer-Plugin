@@ -33,14 +33,15 @@ piklist('field', array(
     )
 ));
 
-$uploaddir = wp_upload_dir();
+/*$uploaddir = wp_upload_dir();
 $uploadfile = $uploaddir['path'] . '/' . $filename;
 
 $contents= file_get_contents($uploadfile);
 $savefile = fopen($uploadfile, 'w');
 fwrite($savefile, $contents);
-fclose($savefile);
+fclose($savefile);*/
 ?>
+<div id="msg"></div>
 <script type="text/javascript">
 
 jQuery(document).ready(function( $ ) {
@@ -48,8 +49,8 @@ jQuery(document).ready(function( $ ) {
   $("#_post_meta_imgd_programa_video_0").on('change',function () {
      var ytl = $( "#_post_meta_imgd_programa_video_0" ).val();
      var yti = ytl.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
-     $('_post_meta__thumbnail_id_0').value("http://i3.ytimg.com/vi/"+ yti[1] + "/hqdefault.jpg");
-     //$( "#msg" ).html( "<img src=\"http://i3.ytimg.com/vi/" + yti[1] + "/hqdefault.jpg\" /><input name=\"imageURL\" id=\"copyimageURL\" class=\"text\" type=\"text\" value=\"http://i3.ytimg.com/vi/"+ yti[1] + "/hqdefault.jpg\" onclick=\"this.select()\" readonly />" );
+     $('#_post_meta__thumbnail_id_0').val("http://i3.ytimg.com/vi/"+ yti[1] + "/hqdefault.jpg");
+     $( "#msg" ).html( "<div style=\"width: 150px;\"><img src=\"http://i3.ytimg.com/vi/" + yti[1] + "/hqdefault.jpg\" /></div><input name=\"imageURL\" id=\"copyimageURL\" class=\"text\" type=\"text\" value=\"http://i3.ytimg.com/vi/"+ yti[1] + "/hqdefault.jpg\" onclick=\"this.select()\" readonly />" );
   });
 
 });
