@@ -12,7 +12,7 @@ Plugin Type: Piklist
 License: GPL2
 */
 
-define( 'SHOWS_PLUGIN_PATH', plugin_dir_url( __FILE__ ) );
+define( 'TURISMO_PLUGIN_PATH', plugin_dir_url( __FILE__ ) );
 
 /**
  * Check if Piklist is activated and installed
@@ -38,6 +38,7 @@ function turismo_plugin_init() {
     $plugin_dir = basename(dirname(__FILE__)).'/languages';
     //echo '<h1>'.$plugin_dir.'</h1>';
     load_plugin_textdomain( 'imgd', false, $plugin_dir );
+    wp_enqueue_script( 'turismo-programa', TURISMO_PLUGIN_PATH.'assets/js/jquery.fitvids.js', array( 'jquery' ), null, true );
 }
 add_action('plugins_loaded', 'turismo_plugin_init');
 
@@ -130,7 +131,7 @@ function show_categoria($taxonomies)
                 )
             )
     );
-    
+
     return $taxonomies;
 
 }
@@ -186,7 +187,22 @@ function get_terms_dropdown($taxonomies, $args){
 function imgd_get_email(){
     return $imgd_email;
 }
+/* Datos del Video */
+function get_datos_video($post_ID){
+  $datos='';
 
+  $produccion = get_post_meta($post_ID , 'imgd_programa_produccion', true);
+  $director = get_post_meta($post_ID , 'imgd_programa_director', true);
+  $ano = get_post_meta($post_ID , 'imgd_programa_ano', true);
+
+  if($produccion) $datos .= '<strong>Productor:</strong> '.$produccion.'<br>';
+  if($director) $datos .= '<strong>Director:</strong> '.$director.'<br>';
+  if($ano) $datos .= '<strong>Año:</strong> '.$ano.'<br>';
+
+  if($datos!='') $datos = '<div class="datos">'.$datos.'</div>';
+
+  return $datos;
+}
 
 /*
  * Obtengo la Fecha del Show

@@ -42,7 +42,7 @@ piklist (
     array(
         'type' => 'text',
         'scope' => 'post_meta',
-        'field' => 'imgd_programa_director',
+        'field' => 'imgd_programa_produccion',
         'label' => __('Producción', 'imgd'),
         'value' => 'Filmarte',
         'attributes' => array(
