@@ -50,7 +50,7 @@ jQuery(document).ready(function( $ ) {
      var ytl = $( "#_post_meta_imgd_programa_video_0" ).val();
      var yti = ytl.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
      //$('#_post_meta__thumbnail_id_0').val("http://i3.ytimg.com/vi/"+ yti[1] + "/hqdefault.jpg");
-     $( "#msg" ).html( "<img src=\"http://i3.ytimg.com/vi/" + yti[1] + "/hqdefault.jpg\" style=\"width: 150px;\" /><input name=\"imageURL\" id=\"copyimageURL\" class=\"text\" type=\"text\" value=\"http://i3.ytimg.com/vi/"+ yti[1] + "/hqdefault.jpg\" onclick=\"this.select()\" readonly />" );
+     $( "#msg" ).html( "<img src=\"http://i3.ytimg.com/vi/" + yti[1] + "/maxresdefault.jpg\" style=\"width: 150px;\" /><input name=\"imageURL\" id=\"copyimageURL\" class=\"text\" type=\"text\" value=\"http://i3.ytimg.com/vi/"+ yti[1] + "/maxresdefault.jpg\" onclick=\"this.select()\" readonly />" );
   });
 
 });

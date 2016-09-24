@@ -136,6 +136,24 @@ function show_categoria($taxonomies)
 
 }
 
+/*
+* Obtengo los últimos Programas
+*
+* @param number $cant default 'All' (-1)
+* @return object WP Query
+*/
+function get_ultimos_programas($cant='-1'){
+  $args = array(
+      'post_type' => array('imgd_programa'),
+      'post_status' => 'publish',
+      'post_per_page' => intval($cant)
+  );
+  //echo var_dump($args);
+  $loop = new WP_Query($args);
+ 
+  return $loop;
+}
+
 /**
  * Get terms dropdown
  *

@@ -11,8 +11,8 @@
  */
 
 
-wp_enqueue_script( 'casino-shows', SHOWS_PLUGIN_PATH.'assets/js/jquery.bootstrap.newsbox.min.js', array( 'jquery' ), null, true );
-wp_enqueue_script( 'casino-news', SHOWS_PLUGIN_PATH.'assets/js/newsticker.js', array( 'jquery' ), null, true );
+//wp_enqueue_script( 'casino-shows',TURISMO_PLUGIN_PATH.'assets/js/jquery.bootstrap.newsbox.min.js', array( 'jquery' ), null, true );
+//wp_enqueue_script( 'casino-news', TURISMO_PLUGIN_PATH.'assets/js/newsticker.js', array( 'jquery' ), null, true );
 
 /*if ( is_active_widget( false, false, $this->id_base, true ) ) {
     // Scripts from News Ticker
@@ -64,7 +64,7 @@ echo $after_title;
 echo $before_widget;
 // Acá seleciono las Páginas que voy a mostrar en la Home
 $args = array(
-    'post_type' => array('imgd_casino_shows'),
+    'post_type' => array('imgd_programa'),
     'post_status' => 'publish',
     'post_per_page' => intval($cant)
 );

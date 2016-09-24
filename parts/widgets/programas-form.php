@@ -2,36 +2,25 @@
 
 piklist('field', array(
     'type' => 'text'
-,'field' => 'imgd_shows_widget_title'
+,'field' => 'imgd_programa_widget_title'
 ,'label' => __('Título', 'imgd')
-,'value' => 'Próximos Shows'
+,'value' => __('Último Programa', 'imgd')
 ,'attributes' => array(
         'class' => 'regular-text'
     )
 ));
 
+
 piklist('field', array(
-    'type' => 'number'
-,'field' => 'imgd_shows_widget_cantidad'
+    'type' => 'select'
+,'field' => 'imgd_programa_widget_seleccion'
 ,'label' => __('Mostrar', 'imgd')
-,'description' => 'Cantidad de shows que se deben mostrar'
+,'description' => __('Selecciona el programa a mostrar','imgd')
 ,'value' => 5
 ,'attributes' => array(
         'class' => 'small-text'
     ,'step' => 1
     ,'min' => 0
     ,'max' => 12
-    )
-));
-
-piklist('field', array(
-    'type' => 'select'
-,'field' => 'imgd_shows_widget_orden'
-,'label' => __('Ordenar por', 'imgd')
-,'value' => 'third'
-,'choices' => array(
-        'fecha' => __('Fecha', 'imgd')
-    ,'alpha' => __('Alfabético', 'imgd')
-    ,'ubicacion' => __('Ubicación', 'imgd')
     )
 ));
