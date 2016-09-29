@@ -224,10 +224,12 @@ function imgd_get_email(){
 function get_datos_video($post_ID){
   $datos='';
 
+  $nro = get_post_meta($post_ID , 'imgd_programa_nro', true);
   $produccion = get_post_meta($post_ID , 'imgd_programa_produccion', true);
   $director = get_post_meta($post_ID , 'imgd_programa_director', true);
   $ano = get_post_meta($post_ID , 'imgd_programa_ano', true);
 
+  if($nro) $datos .= '<strong>Programa Nro:</strong> '.$nro.'<br>';
   if($produccion) $datos .= '<strong>Productor:</strong> '.$produccion.'<br>';
   if($director) $datos .= '<strong>Director:</strong> '.$director.'<br>';
   if($ano) $datos .= '<strong>Año:</strong> '.$ano.'<br>';
@@ -245,7 +247,6 @@ function get_imgd_casino_show_date($post_ID){
     $data='';
 
     $fecha = get_post_meta($post_ID , 'imgd_casino_show_date', true);
-
 
     if (!empty($fecha)) {
         $data ='<h5>El '.$fecha.' a las '. get_post_meta($post_ID , 'imgd_casino_show_hora', true).'</h5>';

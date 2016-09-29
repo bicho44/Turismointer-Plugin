@@ -6,7 +6,20 @@ Description: Datos sobre la Producción del Programa
 Priority: default
 Order: 3
 */
-
+piklist (
+    'field',
+    array(
+        'type' => 'number',
+        'scope' => 'post_meta',
+        'field' => 'imgd_programa_nro',
+        'label' => __('Programa Número', 'imgd'),
+        'value' => '',
+        'attributes' => array(
+            'class' => 'text'
+        ),
+        'position' => 'wrap'
+    )
+);
 piklist (
     'field',
     array(
