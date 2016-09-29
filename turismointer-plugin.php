@@ -117,8 +117,23 @@ add_filter('piklist_taxonomies', 'show_categoria');
 
 function show_categoria($taxonomies)
 {
+  $labels = array(
+    'name'                          => __( 'Actors', 'your-themes-text-domain' ),
+    'singular_name'                 => __( 'Actor', 'your-themes-text-domain' ),
+    'search_items'                  => __( 'Search Actors', 'your-themes-text-domain' ),
+    'popular_items'                 => __( 'Popular Actors', 'your-themes-text-domain' ),
+    'all_items'                     => __( 'All Actors', 'your-themes-text-domain' ),
+    'parent_item'                   => __( 'Parent Actor', 'your-themes-text-domain' ),
+    'edit_item'                     => __( 'Edit Actor', 'your-themes-text-domain' ),
+    'update_item'                   => __( 'Update Actor', 'your-themes-text-domain' ),
+    'add_new_item'                  => __( 'Add New Actor', 'your-themes-text-domain' ),
+    'new_item_name'                 => __( 'New Actor', 'your-themes-text-domain' ),
+    'separate_items_with_commas'    => __( 'Separate Actors with commas', 'your-themes-text-domain' ),
+    'add_or_remove_items'           => __( 'Add or remove Actors', 'your-themes-text-domain' ),
+    'choose_from_most_used'         => __( 'Choose from most used Actors', 'your-themes-text-domain' )
+);
     $taxonomies[] = array(
-        'post_type' => 'imgd_programa'
+        'post_type' => array('imgd_programa', 'post', 'page')
         ,'name' => 'imgd_programa_ubicacion'
         ,'show_admin_column' => true
         ,'configuration' => array(
@@ -150,7 +165,7 @@ function get_ultimos_programas($cant='-1'){
   );
   //echo var_dump($args);
   $loop = new WP_Query($args);
- 
+
   return $loop;
 }
 
