@@ -117,20 +117,20 @@ add_filter('piklist_taxonomies', 'show_categoria');
 
 function show_categoria($taxonomies)
 {
-  $labels = array(
-    'name'                          => __( 'Actors', 'your-themes-text-domain' ),
-    'singular_name'                 => __( 'Actor', 'your-themes-text-domain' ),
-    'search_items'                  => __( 'Search Actors', 'your-themes-text-domain' ),
-    'popular_items'                 => __( 'Popular Actors', 'your-themes-text-domain' ),
-    'all_items'                     => __( 'All Actors', 'your-themes-text-domain' ),
-    'parent_item'                   => __( 'Parent Actor', 'your-themes-text-domain' ),
-    'edit_item'                     => __( 'Edit Actor', 'your-themes-text-domain' ),
-    'update_item'                   => __( 'Update Actor', 'your-themes-text-domain' ),
-    'add_new_item'                  => __( 'Add New Actor', 'your-themes-text-domain' ),
-    'new_item_name'                 => __( 'New Actor', 'your-themes-text-domain' ),
-    'separate_items_with_commas'    => __( 'Separate Actors with commas', 'your-themes-text-domain' ),
-    'add_or_remove_items'           => __( 'Add or remove Actors', 'your-themes-text-domain' ),
-    'choose_from_most_used'         => __( 'Choose from most used Actors', 'your-themes-text-domain' )
+  $labelUbica = array(
+    'name'                          => __( 'Ubicaciones', 'imgd' ),
+    'singular_name'                 => __( 'Ubicación', 'imgd' ),
+    'search_items'                  => __( 'Buscar la Ubicación', 'imgd' ),
+    'popular_items'                 => __( 'Ubicaciones Populares', 'imgd' ),
+    'all_items'                     => __( 'Todas las Ubicaciones', 'imgd' ),
+    'parent_item'                   => __( 'Ubicación pariente', 'imgd' ),
+    'edit_item'                     => __( 'Editar Ubicación', 'imgd' ),
+    'update_item'                   => __( 'Actualizar Ubicación', 'imgd' ),
+    'add_new_item'                  => __( 'Agregar una nueva Ubicación', 'imgd' ),
+    'new_item_name'                 => __( 'Nueva Ubicación', 'imgd' ),
+    'separate_items_with_commas'    => __( 'Separe las Ubicaciones con comas', 'imgd' ),
+    'add_or_remove_items'           => __( 'Agregue o Borre Ubicaciones', 'imgd' ),
+    'choose_from_most_used'         => __( 'Elija alguna ubicación entre las más usadas', 'imgd' )
 );
     $taxonomies[] = array(
         'post_type' => array('imgd_programa', 'post', 'page')
@@ -138,7 +138,7 @@ function show_categoria($taxonomies)
         ,'show_admin_column' => true
         ,'configuration' => array(
             'hierarchical' => true
-            ,'labels' => piklist('taxonomy_labels', __('Ubicación', 'imgd'))
+            ,'labels' => $labelUbica
             ,'show_ui' => true
             ,'query_var' => true
             ,'rewrite' => array(
