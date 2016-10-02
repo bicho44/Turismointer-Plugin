@@ -220,6 +220,8 @@ function get_terms_dropdown($taxonomies, $args){
 function imgd_get_email(){
     return $imgd_email;
 }
+
+
 /* Datos del Video */
 function get_datos_video($post_ID){
   $datos='';
@@ -234,7 +236,7 @@ function get_datos_video($post_ID){
   if($director) $datos .= '<strong>Director:</strong> '.$director.'<br>';
   if($ano) $datos .= '<strong>Año:</strong> '.$ano.'<br>';
 
-  if($datos!='') $datos = '<div class="datos">'.$datos.'</div>';
+  if($datos!='') $datos = '<div class="datos"> <h3>'.__('Datos de Producción', 'imgd').'</h3>'.$datos.'</div>';
 
   return $datos;
 }
