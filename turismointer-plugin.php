@@ -82,7 +82,7 @@ function turismo_post_type($post_types)
         ,'rewrite' => array(
             'slug' => __('programa', 'imgd')
         )
-        ,'status' => array(
+        /*,'status' => array(
           'draft' => array(
               'label' => __('draft', LANG),
               'public' => false
@@ -95,7 +95,7 @@ function turismo_post_type($post_types)
             'label' => __('publish', LANG),
             'public' => true
         )
-      )
+      )*/
     ,'supports' => array(
             'title',
             'editor',
