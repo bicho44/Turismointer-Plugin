@@ -142,10 +142,10 @@ function turismo_post_type($post_types)
         ,'public' => true
         ,'capability_type' => 'page'
         ,'has_archive' => __('programas','imgd')
-        ,'menu_icon' => 'dashicons-tickets-alt'
-        ,'page_icon' => 'dashicons-tickets-alt'
+        ,'menu_icon' => 'dashicons-groups'
+        ,'page_icon' => 'dashicons-groups'
         ,'rewrite' => array(
-            'slug' => __('programa', 'imgd')
+            'slug' => __('servicio', 'imgd')
         )
     ,'supports' => array(
             'title',
