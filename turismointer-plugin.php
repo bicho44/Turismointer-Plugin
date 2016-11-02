@@ -141,7 +141,7 @@ function turismo_post_type($post_types)
         ,'title' => __('Ingrese un nuevo '.$singular, 'imgd')
         ,'public' => true
         ,'capability_type' => 'page'
-        ,'has_archive' => __('programas','imgd')
+        ,'has_archive' => __('servicios','imgd')
         ,'menu_icon' => 'dashicons-groups'
         ,'page_icon' => 'dashicons-groups'
         ,'rewrite' => array(
