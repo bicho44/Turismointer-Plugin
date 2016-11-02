@@ -82,6 +82,71 @@ function turismo_post_type($post_types)
         ,'rewrite' => array(
             'slug' => __('programa', 'imgd')
         )
+        ,'status' => array(
+          'draft' => array(
+              'label' => __('draft', LANG),
+              'public' => false
+              ),
+          'pending' => array(
+              'label' => __('pending', LANG),
+              'public' => false
+              ),
+          'publish' => array(
+            'label' => __('publish', LANG),
+            'public' => true
+        )
+      )
+    ,'supports' => array(
+            'title',
+            'editor',
+            'author',
+            'thumbnail'
+        )
+    ,'menu_position'=>20
+    ,'edit_columns' => array(
+            'title' => __($plural, 'imgd')
+        )
+    ,'hide_meta_box' => array(
+            'slug'
+            ,'author'
+            ,'revisions'
+            ,'comments'
+            ,'mymetabox_revslider_0' // Rev Slider Metabox
+            ,'postimagediv' //Feature Image div
+            ,'commentstatus'
+        )
+    );
+
+    $singular = 'Servicio';
+    $plural = 'Servicios';
+
+    $post_types['imgd_servicio'] = array(
+        'labels' => array(
+                'name'               => _x( $plural, 'post type general name', 'imgd' ),
+                'singular_name'      => _x( $singular, 'post type singular name', 'imgd' ),
+                'menu_name'          => _x( $plural, 'admin menu', 'imgd' ),
+                'name_admin_bar'     => _x( $singular, 'add new on admin bar', 'imgd' ),
+                'add_new'            => _x( 'Agregue un '.$singular, 'barco', 'imgd' ),
+                'add_new_item'       => __( 'Agregue un nuevo '.$singular, 'imgd' ),
+                'new_item'           => __( 'Nuevo '.$singular, 'imgd' ),
+                'edit_item'          => __( 'Edite el '.$singular, 'imgd' ),
+                'view_item'          => __( 'Ver '.$singular, 'imgd' ),
+                'all_items'          => __( 'Todos los '.$plural, 'imgd' ),
+                'search_items'       => __( 'Buscar '.$plural, 'imgd' ),
+                'parent_item_colon'  => __( $singular.' Pariente:', 'imgd' ),
+                'not_found'          => __( 'No se encontraron '.$plural, 'imgd' ),
+                'not_found_in_trash' => __( 'No se encontraron '.$plural.' en la Basura.', 'imgd' )
+            )
+        ,'type' => 'page'
+        ,'title' => __('Ingrese un nuevo '.$singular, 'imgd')
+        ,'public' => true
+        ,'capability_type' => 'page'
+        ,'has_archive' => __('programas','imgd')
+        ,'menu_icon' => 'dashicons-tickets-alt'
+        ,'page_icon' => 'dashicons-tickets-alt'
+        ,'rewrite' => array(
+            'slug' => __('programa', 'imgd')
+        )
     ,'supports' => array(
             'title',
             'editor',
@@ -133,7 +198,7 @@ function show_categoria($taxonomies)
     'choose_from_most_used'         => __( 'Elija alguna ubicación entre las más usadas', 'imgd' )
 );
     $taxonomies[] = array(
-        'post_type' => array('imgd_programa', 'post', 'page')
+        'post_type' => array('imgd_programa', 'post', 'page', 'imgd_servicio')
         ,'name' => 'imgd_programa_ubicacion'
         ,'show_admin_column' => true
         ,'configuration' => array(
