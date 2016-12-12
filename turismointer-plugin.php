@@ -235,7 +235,7 @@ function show_categoria($taxonomies)
         ,'show_admin_column' => true
         ,'configuration' => array(
             'hierarchical' => false
-            ,'labels' => $labelempresas
+            ,'labels' => $labelempresa
             ,'show_ui' => true
             ,'query_var' => true
             ,'rewrite' => array(

@@ -16,23 +16,6 @@ Order: 3
 // Mapa?
 // Categoría Ubicaciones (esta es la generica)
 
-piklist (
-    'field',
-    array(
-        'type' => 'text',
-        'scope' => 'post_meta',
-        'field' => 'imgd_servicio_contacto_name',
-        'label' => __('Nombre de contacto', 'imgd'),
-        'value' => '',
-        'columns' => 12,
-        'add_more' => true,
-        'attributes' => array(
-            'class' => 'text'
-        ),
-        'position' => 'wrap'
-    )
-);
-
 piklist('field', array(
     'type' => 'group'
     ,'field' => 'imgd_direccion_group'
@@ -43,7 +26,6 @@ piklist('field', array(
         'type' => 'text'
         ,'field' => 'address_1'
         ,'label' => __('Calle', 'imgd')
-        ,'required' => true
         ,'columns' => 12
         ,'attributes' => array(
           'placeholder' => 'Calle'
