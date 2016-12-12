@@ -166,6 +166,8 @@ function turismo_post_type($post_types)
             ,'commentstatus'
         )
     );
+
+
     return $post_types;
 }
 
@@ -207,6 +209,37 @@ function show_categoria($taxonomies)
             ,'query_var' => true
             ,'rewrite' => array(
                     'slug' => __('ubicacion', 'imgd')
+                )
+            )
+    );
+
+    $labelempresa = array(
+      'name'                          => __( 'Empresas', 'imgd' ),
+      'singular_name'                 => __( 'Empresa', 'imgd' ),
+      'search_items'                  => __( 'Buscar la Empresa', 'imgd' ),
+      'popular_items'                 => __( 'Empresas Populares', 'imgd' ),
+      'all_items'                     => __( 'Todas las Empresas', 'imgd' ),
+      'parent_item'                   => __( 'Empresa pariente', 'imgd' ),
+      'edit_item'                     => __( 'Editar Empresa', 'imgd' ),
+      'update_item'                   => __( 'Actualizar Empresa', 'imgd' ),
+      'add_new_item'                  => __( 'Agregar una nueva Empresa', 'imgd' ),
+      'new_item_name'                 => __( 'Nueva Empresa', 'imgd' ),
+      'separate_items_with_commas'    => __( 'Separe las Empresas con comas', 'imgd' ),
+      'add_or_remove_items'           => __( 'Agregue o Borre Empresas', 'imgd' ),
+      'choose_from_most_used'         => __( 'Elija alguna Empresa entre las más usadas', 'imgd' )
+    );
+
+    $taxonomies[] = array(
+        'post_type' => array('imgd_servicio')
+        ,'name' => 'imgd_servicio_empresa'
+        ,'show_admin_column' => true
+        ,'configuration' => array(
+            'hierarchical' => false
+            ,'labels' => $labelempresas
+            ,'show_ui' => true
+            ,'query_var' => true
+            ,'rewrite' => array(
+                    'slug' => __('empresa', 'imgd')
                 )
             )
     );
