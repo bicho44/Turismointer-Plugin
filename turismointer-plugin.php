@@ -117,8 +117,8 @@ function turismo_post_type($post_types)
         )
     );
 
-    $singular = 'Servicio';
-    $plural = 'Servicios';
+    $singular = 'Operador';
+    $plural = 'Operadores';
 
     $post_types['imgd_servicio'] = array(
         'labels' => array(
@@ -141,7 +141,7 @@ function turismo_post_type($post_types)
         ,'title' => __('Ingrese un nuevo '.$singular, 'imgd')
         ,'public' => true
         ,'capability_type' => 'page'
-        ,'has_archive' => __('servicios','imgd')
+        ,'has_archive' => __('operadores','imgd')
         ,'menu_icon' => 'dashicons-groups'
         ,'page_icon' => 'dashicons-groups'
         ,'rewrite' => array(
@@ -153,7 +153,7 @@ function turismo_post_type($post_types)
             'author',
             'thumbnail'
         )
-    ,'menu_position'=>20
+    ,'menu_position'=> 20
     ,'edit_columns' => array(
             'title' => __($plural, 'imgd')
         )
@@ -163,7 +163,6 @@ function turismo_post_type($post_types)
             ,'revisions'
             ,'comments'
             ,'mymetabox_revslider_0' // Rev Slider Metabox
-            ,'postimagediv' //Feature Image div
             ,'commentstatus'
         )
     );
@@ -198,7 +197,7 @@ function show_categoria($taxonomies)
     'choose_from_most_used'         => __( 'Elija alguna ubicación entre las más usadas', 'imgd' )
 );
     $taxonomies[] = array(
-        'post_type' => array('imgd_programa', 'post', 'page', 'imgd_servicio')
+        'post_type' => array('imgd_programa', 'post', 'page')
         ,'name' => 'imgd_programa_ubicacion'
         ,'show_admin_column' => true
         ,'configuration' => array(
@@ -208,6 +207,130 @@ function show_categoria($taxonomies)
             ,'query_var' => true
             ,'rewrite' => array(
                     'slug' => __('ubicacion', 'imgd')
+                )
+            )
+    );
+
+    $labelcategorias = array(
+      'name'                          => __( 'Categorias', 'imgd' ),
+      'singular_name'                 => __( 'Categoría', 'imgd' ),
+      'search_items'                  => __( 'Buscar la Categoría', 'imgd' ),
+      'popular_items'                 => __( 'Categorias Populares', 'imgd' ),
+      'all_items'                     => __( 'Todas las Categorias', 'imgd' ),
+      'parent_item'                   => __( 'Categoría pariente', 'imgd' ),
+      'edit_item'                     => __( 'Editar Categoría', 'imgd' ),
+      'update_item'                   => __( 'Actualizar Categoría', 'imgd' ),
+      'add_new_item'                  => __( 'Agregar una nueva Categoría', 'imgd' ),
+      'new_item_name'                 => __( 'Nueva Categoría', 'imgd' ),
+      'separate_items_with_commas'    => __( 'Separe las Categorias con comas', 'imgd' ),
+      'add_or_remove_items'           => __( 'Agregue o Borre Categorias', 'imgd' ),
+      'choose_from_most_used'         => __( 'Elija alguna Categoría entre las más usadas', 'imgd' )
+    );
+
+    $taxonomies[] = array(
+        'post_type' => array('imgd_servicio')
+        ,'name' => 'imgd_servicio_categoria'
+        ,'show_admin_column' => true
+        ,'configuration' => array(
+            'hierarchical' => false
+            ,'labels' => $labelcategorias
+            ,'show_ui' => true
+            ,'query_var' => true
+            ,'rewrite' => array(
+                    'slug' => __('categoria', 'imgd')
+                )
+            )
+    );
+
+    $labelciudad = array(
+      'name'                          => __( 'Ciudades', 'imgd' ),
+      'singular_name'                 => __( 'Ciudad', 'imgd' ),
+      'search_items'                  => __( 'Buscar la Ciudad', 'imgd' ),
+      'popular_items'                 => __( 'Ciudades Populares', 'imgd' ),
+      'all_items'                     => __( 'Todas las Ciudades', 'imgd' ),
+      'parent_item'                   => __( 'Ciudad pariente', 'imgd' ),
+      'edit_item'                     => __( 'Editar Ciudad', 'imgd' ),
+      'update_item'                   => __( 'Actualizar Ciudad', 'imgd' ),
+      'add_new_item'                  => __( 'Agregar una nueva Ciudad', 'imgd' ),
+      'new_item_name'                 => __( 'Nueva Ciudad', 'imgd' ),
+      'separate_items_with_commas'    => __( 'Separe las Ciudades con comas', 'imgd' ),
+      'add_or_remove_items'           => __( 'Agregue o Borre Ciudades', 'imgd' ),
+      'choose_from_most_used'         => __( 'Elija alguna ciudad entre las más usadas', 'imgd' )
+    );
+
+    $taxonomies[] = array(
+        'post_type' => array('imgd_servicio')
+        ,'name' => 'imgd_servicio_ciudad'
+        ,'show_admin_column' => true
+        ,'configuration' => array(
+            'hierarchical' => false
+            ,'labels' => $labelciudad
+            ,'show_ui' => true
+            ,'query_var' => true
+            ,'rewrite' => array(
+                    'slug' => __('ciudad', 'imgd')
+                )
+            )
+    );
+
+    $labelestado = array(
+      'name'                          => __( 'Estados', 'imgd' ),
+      'singular_name'                 => __( 'Estado', 'imgd' ),
+      'search_items'                  => __( 'Buscar la Estado', 'imgd' ),
+      'popular_items'                 => __( 'Estado Populares', 'imgd' ),
+      'all_items'                     => __( 'Todas las Estado', 'imgd' ),
+      'parent_item'                   => __( 'Estado pariente', 'imgd' ),
+      'edit_item'                     => __( 'Editar Estado', 'imgd' ),
+      'update_item'                   => __( 'Actualizar Estado', 'imgd' ),
+      'add_new_item'                  => __( 'Agregar una nueva Estado', 'imgd' ),
+      'new_item_name'                 => __( 'Nueva Estado', 'imgd' ),
+      'separate_items_with_commas'    => __( 'Separe los Estados con comas', 'imgd' ),
+      'add_or_remove_items'           => __( 'Agregue o Borre Estado', 'imgd' ),
+      'choose_from_most_used'         => __( 'Elija algún Estado entre las más usadas', 'imgd' )
+    );
+
+    $taxonomies[] = array(
+        'post_type' => array('imgd_servicio')
+        ,'name' => 'imgd_servicio_estado'
+        ,'show_admin_column' => true
+        ,'configuration' => array(
+            'hierarchical' => false
+            ,'labels' => $labelestado
+            ,'show_ui' => true
+            ,'query_var' => true
+            ,'rewrite' => array(
+                    'slug' => __('estado', 'imgd')
+                )
+            )
+    );
+
+    $labelpais = array(
+      'name'                          => __( 'Paises', 'imgd' ),
+      'singular_name'                 => __( 'País', 'imgd' ),
+      'search_items'                  => __( 'Buscar el País', 'imgd' ),
+      'popular_items'                 => __( 'Paises Populares', 'imgd' ),
+      'all_items'                     => __( 'Todas los Paises', 'imgd' ),
+      'parent_item'                   => __( 'País pariente', 'imgd' ),
+      'edit_item'                     => __( 'Editar País', 'imgd' ),
+      'update_item'                   => __( 'Actualizar País', 'imgd' ),
+      'add_new_item'                  => __( 'Agregar un nuevo País', 'imgd' ),
+      'new_item_name'                 => __( 'Nuevo País', 'imgd' ),
+      'separate_items_with_commas'    => __( 'Separe los Paises con comas', 'imgd' ),
+      'add_or_remove_items'           => __( 'Agregue o Borre País', 'imgd' ),
+      'choose_from_most_used'         => __( 'Elija algún País entre los más usadas', 'imgd' )
+    );
+
+    $taxonomies[] = array(
+        'post_type' => array('imgd_servicio')
+        ,'name' => 'imgd_servicio_pais'
+        ,'show_admin_column' => true
+        ,'configuration' => array(
+            'hierarchical' => false
+            ,'labels' => $labelpais
+            ,'show_ui' => true
+            ,'query_var' => true
+            ,'rewrite' => array(
+                    'slug' => __('pais', 'imgd')
                 )
             )
     );
@@ -226,7 +349,7 @@ function get_ultimos_programas($cant='-1'){
   $args = array(
       'post_type' => array('imgd_programa'),
       'post_status' => 'publish',
-      'post_per_page' => intval($cant)
+      'posts_per_page' => intval($cant)
   );
   //echo var_dump($args);
   $loop = new WP_Query($args);
@@ -306,6 +429,50 @@ function get_datos_video($post_ID){
   return $datos;
 }
 
+
+/* Datos del servicio */
+function get_datos_servicio($post_ID){
+  $datos='';
+
+  $contactos = get_post_meta($post_ID , 'imgd_servicio_contacto_name');
+  if ($contactos) {
+    $datos .= '<strong>Contacto:</strong> ';
+    foreach ($contactos as $contacto) {
+      if($contacto) $datos .= $contacto;
+    }
+  }
+  $direcciones = get_post_meta($post_ID , 'imgd_direccion_group');
+  if ($direcciomes) {
+    $datos .= '<strong>Direccióm:</strong> ';
+    foreach ($direcciones as $contacto) {
+      if($direccion) $datos .= $contacto;
+    }
+  }
+
+  $tels = get_post_meta($post_ID , 'imgd_servicio_tel');
+  $cels = get_post_meta($post_ID , 'imgd_servicio_cel');
+  $emails = get_post_meta($post_ID , 'imgd_servicio_cel');
+
+
+
+ //var_dump($direcciom);
+
+  // $produccion = get_post_meta($post_ID , 'imgd_programa_produccion', true);
+  // $director = get_post_meta($post_ID , 'imgd_programa_director', true);
+  // $ano = get_post_meta($post_ID , 'imgd_programa_ano', true);
+  //
+  // if($nro) $datos .= '<strong>Programa Nro:</strong> '.$nro.'<br>';
+  // if($produccion) $datos .= '<strong>Productor:</strong> '.$produccion.'<br>';
+  // if($director) $datos .= '<strong>Director:</strong> '.$director.'<br>';
+  // if($ano) $datos .= '<strong>Año:</strong> '.$ano.'<br>';
+  //
+  // if($datos!='') $datos = '<div class="datos"> <h3>'.__('Datos de Producción', 'imgd').'</h3>'.$datos.'</div>';
+
+  return $datos;
+}
+
+
+
 /*
  * Obtengo la Fecha del Show
  */
@@ -356,9 +523,213 @@ function get_imgd_casino_show_data($post_ID) {
 
 }
 
-/*
+/**
  * Devuelve la data del Show
- */
+ **/
 function imgd_casino_show_data ($post_ID){
    echo  get_imgd_casino_show_data ($post_ID);
+}
+
+/**
+* IMGD Paises
+* Devuelve un array con los países
+*
+**/
+function imgd_paises(){
+  $paises = array(
+		"Afghanistan",
+		"Albania",
+		"Algeria",
+		"Andorra",
+		"Angola",
+		"Antigua and Barbuda",
+		"Argentina",
+		"Armenia",
+		"Australia",
+		"Austria",
+		"Azerbaijan",
+		"Bahamas",
+		"Bahrain",
+		"Bangladesh",
+		"Barbados",
+		"Belarus",
+		"Belgium",
+		"Belize",
+		"Benin",
+		"Bhutan",
+		"Bolivia",
+		"Bosnia and Herzegovina",
+		"Botswana",
+		"Brazil",
+		"Brunei",
+		"Bulgaria",
+		"Burkina Faso",
+		"Burundi",
+		"Cambodia",
+		"Cameroon",
+		"Canada",
+		"Cape Verde",
+		"Central African Republic",
+		"Chad",
+		"Chile",
+		"China",
+		"Colombia",
+		"Comoros",
+		"Congo (Brazzaville)",
+		"Congo",
+		"Costa Rica",
+		"Cote d'Ivoire",
+		"Croatia",
+		"Cuba",
+		"Cyprus",
+		"Czech Republic",
+		"Denmark",
+		"Djibouti",
+		"Dominica",
+		"Dominican Republic",
+		"East Timor (Timor Timur)",
+		"Ecuador",
+		"Egypt",
+		"El Salvador",
+		"Equatorial Guinea",
+		"Eritrea",
+		"Estonia",
+		"Ethiopia",
+		"Fiji",
+		"Finland",
+		"France",
+		"Gabon",
+		"Gambia, The",
+		"Georgia",
+		"Germany",
+		"Ghana",
+		"Greece",
+		"Grenada",
+		"Guatemala",
+		"Guinea",
+		"Guinea-Bissau",
+		"Guyana",
+		"Haiti",
+		"Honduras",
+		"Hungary",
+		"Iceland",
+		"India",
+		"Indonesia",
+		"Iran",
+		"Iraq",
+		"Ireland",
+		"Israel",
+		"Italy",
+		"Jamaica",
+		"Japan",
+		"Jordan",
+		"Kazakhstan",
+		"Kenya",
+		"Kiribati",
+		"Korea, North",
+		"Korea, South",
+		"Kuwait",
+		"Kyrgyzstan",
+		"Laos",
+		"Latvia",
+		"Lebanon",
+		"Lesotho",
+		"Liberia",
+		"Libya",
+		"Liechtenstein",
+		"Lithuania",
+		"Luxembourg",
+		"Macedonia",
+		"Madagascar",
+		"Malawi",
+		"Malaysia",
+		"Maldives",
+		"Mali",
+		"Malta",
+		"Marshall Islands",
+		"Mauritania",
+		"Mauritius",
+		"Mexico",
+		"Micronesia",
+		"Moldova",
+		"Monaco",
+		"Mongolia",
+		"Morocco",
+		"Mozambique",
+		"Myanmar",
+		"Namibia",
+		"Nauru",
+		"Nepa",
+		"Netherlands",
+		"New Zealand",
+		"Nicaragua",
+		"Niger",
+		"Nigeria",
+		"Norway",
+		"Oman",
+		"Pakistan",
+		"Palau",
+		"Panama",
+		"Papua New Guinea",
+		"Paraguay",
+		"Peru",
+		"Philippines",
+		"Poland",
+		"Portugal",
+		"Qatar",
+		"Romania",
+		"Russia",
+		"Rwanda",
+		"Saint Kitts and Nevis",
+		"Saint Lucia",
+		"Saint Vincent",
+		"Samoa",
+		"San Marino",
+		"Sao Tome and Principe",
+		"Saudi Arabia",
+		"Senegal",
+		"Serbia and Montenegro",
+		"Seychelles",
+		"Sierra Leone",
+		"Singapore",
+		"Slovakia",
+		"Slovenia",
+		"Solomon Islands",
+		"Somalia",
+		"South Africa",
+		"Spain",
+		"Sri Lanka",
+		"Sudan",
+		"Suriname",
+		"Swaziland",
+		"Sweden",
+		"Switzerland",
+		"Syria",
+		"Taiwan",
+		"Tajikistan",
+		"Tanzania",
+		"Thailand",
+		"Togo",
+		"Tonga",
+		"Trinidad and Tobago",
+		"Tunisia",
+		"Turkey",
+		"Turkmenistan",
+		"Tuvalu",
+		"Uganda",
+		"Ukraine",
+		"United Arab Emirates",
+		"United Kingdom",
+		"United States",
+		"Uruguay",
+		"Uzbekistan",
+		"Vanuatu",
+		"Vatican City",
+		"Venezuela",
+		"Vietnam",
+		"Yemen",
+		"Zambia",
+		"Zimbabwe"
+	);
+  return $paises;
 }

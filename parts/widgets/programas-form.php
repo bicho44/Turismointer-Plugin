@@ -18,7 +18,7 @@ piklist('field', array(
 ,'description' => __('Selecciona el programa a mostrar','imgd')
 ,'value' => 5
 ,'attributes' => array(
-        'class' => 'small-text'
+    'class' => 'small-text'
     ,'step' => 1
     ,'min' => 0
     ,'max' => 12
