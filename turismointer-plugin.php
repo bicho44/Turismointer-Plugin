@@ -464,42 +464,19 @@ function get_datos_video($post_ID){
 
 
 /* Datos del servicio */
-function get_datos_servicio($post_ID){
+function get_datos_servicio($post_ID, $meta='', $title=''){
   $datos='';
+  $datas = array();
 
-  $contactos = get_post_meta($post_ID , 'imgd_servicio_contacto_name');
-  if ($contactos) {
-    $datos .= '<strong>Contacto:</strong> ';
-    foreach ($contactos as $contacto) {
-      if($contacto) $datos .= $contacto;
-    }
+  if ($meta != ''){
+    $datas = get_post_meta($post_ID, $meta);
+      if (!empty($datas)) {
+        if ($title!='') $datos .= '<strong>'.$title.'</strong> ';
+        foreach ($datas as $dato) {
+          $datos .= $dato;
+        }
+      }
   }
-  $direcciones = get_post_meta($post_ID , 'imgd_direccion_group');
-  if ($direcciomes) {
-    $datos .= '<strong>Direccióm:</strong> ';
-    foreach ($direcciones as $contacto) {
-      if($direccion) $datos .= $contacto;
-    }
-  }
-
-  $tels = get_post_meta($post_ID , 'imgd_servicio_tel');
-  $cels = get_post_meta($post_ID , 'imgd_servicio_cel');
-  $emails = get_post_meta($post_ID , 'imgd_servicio_cel');
-
-
-
- //var_dump($direcciom);
-
-  // $produccion = get_post_meta($post_ID , 'imgd_programa_produccion', true);
-  // $director = get_post_meta($post_ID , 'imgd_programa_director', true);
-  // $ano = get_post_meta($post_ID , 'imgd_programa_ano', true);
-  //
-  // if($nro) $datos .= '<strong>Programa Nro:</strong> '.$nro.'<br>';
-  // if($produccion) $datos .= '<strong>Productor:</strong> '.$produccion.'<br>';
-  // if($director) $datos .= '<strong>Director:</strong> '.$director.'<br>';
-  // if($ano) $datos .= '<strong>Año:</strong> '.$ano.'<br>';
-  //
-  // if($datos!='') $datos = '<div class="datos"> <h3>'.__('Datos de Producción', 'imgd').'</h3>'.$datos.'</div>';
 
   return $datos;
 }
