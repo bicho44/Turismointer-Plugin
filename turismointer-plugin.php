@@ -469,10 +469,10 @@ function get_datos_servicio($post_ID, $meta='', $title=''){
   $datas = array();
 
   if ($meta != ''){
-    $datas = get_post_meta($post_ID, $meta);
-    $check = array_filter(get_post_meta($post_ID, $meta));
+    $datos = get_post_meta($post_ID, $meta);
+    $datos = array_filter($datos);
 
-      if (!empty($check)) {
+      if (!empty($datos)) {
         if ($title!='') $datos .= '<strong>'.$title.'</strong> ';
         foreach ($datas as $dato) {
           $datos .= $dato.'<br>';
