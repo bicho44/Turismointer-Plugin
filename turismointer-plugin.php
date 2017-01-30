@@ -473,7 +473,7 @@ function get_datos_servicio($post_ID, $meta='', $title=''){
       if (!empty($datas)) {
         if ($title!='') $datos .= '<strong>'.$title.'</strong> ';
         foreach ($datas as $dato) {
-          $datos .= $dato.' ';
+          $datos .= $dato.'<br>';
         }
       }
   }
