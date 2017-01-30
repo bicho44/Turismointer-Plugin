@@ -470,7 +470,8 @@ function get_datos_servicio($post_ID, $meta='', $title=''){
 
   if ($meta != ''){
     $datas = get_post_meta($post_ID, $meta);
-      if (!empty($datas)) {
+    $check = array_filter($datas));
+      if (!empty($check)) {
         if ($title!='') $datos .= '<strong>'.$title.'</strong> ';
         foreach ($datas as $dato) {
           $datos .= $dato.'<br>';
