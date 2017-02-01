@@ -1,44 +1,32 @@
 <?php
 /**
- * Title: Programas
- * Class: newsTicker
- * Width: 500
- *
- * Widget para mostrar los próximos Shows
- * User: bicho44
- * Date: 2/23/16
- * Time: 7:49 PM
+ * Title: Programas Turismo InterOceánico
+ * Description: Widget para destacar un Programa de Turismo InterOceánico
  */
 
-
-//wp_enqueue_script( 'casino-shows',TURISMO_PLUGIN_PATH.'assets/js/jquery.bootstrap.newsbox.min.js', array( 'jquery' ), null, true );
-//wp_enqueue_script( 'casino-news', TURISMO_PLUGIN_PATH.'assets/js/newsticker.js', array( 'jquery' ), null, true );
-
-/*if ( is_active_widget( false, false, $this->id_base, true ) ) {
-    // Scripts from News Ticker
-    wp_enqueue_script( 'scripts', plugin_dir_url( __FILE__ ) . 'assets/js/jquery.bootstrap.newsbox.min.js', array( 'jquery' ), null, true );
-
-}*/
-
-//piklist::pre($settings);
+piklist::pre($settings);
 
 $title = "";
 $cant = "";
-$orden = "";
+$ID_programa = "";
 
 //global $imgd_email;
-if (isset($settings['imgd_shows_widget_title'])){
-    $title = $settings['imgd_shows_widget_title'];
+if (isset($settings['imgd_programa_widget_title'])){
+    $title = $settings['imgd_programa_widget_title'];
 }
 
+if (isset($settings['imgd_programa_widget_seleccion'])){
+    $ID_programa = $settings['imgd_programa_widget_seleccion'];
+}
 
-if (isset($settings['imgd_shows_widget_cantidad']))  $cant = $settings['imgd_shows_widget_cantidad'][0];
+// Cantidad de Show a Mostrar @todo agregar la opcion en el widget
+//if (isset($settings['imgd_shows_widget_cantidad']))  $cant = $settings['imgd_shows_widget_cantidad'][0];
 
 
 
 //if (isset($settings['imgd_shows_widget_orden']))  $image = $settings['lateral_image'];
 
-if (isset($settings['imgd_shows_widget_orden'])) $orden = $settings['imgd_shows_widget_orden'];
+//if (isset($settings['imgd_shows_widget_orden'])) $orden = $settings['imgd_shows_widget_orden'];
 
 
 /*
@@ -63,83 +51,21 @@ echo $after_title;
 
 echo $before_widget;
 // Acá seleciono las Páginas que voy a mostrar en la Home
-$args = array(
-    'post_type' => array('imgd_programa'),
-    'post_status' => 'publish',
-    'post_per_page' => intval($cant)
-);
-//echo var_dump($args);
-$loop = new WP_Query($args);
+if($ID_programa!=0) {
+$programa = get_post( $ID_programa );
+$programa_url = get_permalink($ID_programa);
+$programa_title= $programa->post_title;
 
-if ($loop->have_posts()) {
-    $x = 0;
-    ?>
-    <div class="panel panel-default">
-<!--    <div class="panel-heading"></div>-->
-    <div class="panel-body">
-    <ul id="casino-shows" class="casino-shows list-unstyled">
-        <?php
-        while ($loop->have_posts()) : $loop->the_post();
-            $fechatexto = "";
-            $hora = "";
-            $salon = "";
-            $lugar = "";
-            $fecha = "";
-            ?>
-            <li class="news-item">
-                <?php $salones = get_post_meta(get_the_ID() , 'imgd_casino_show_salon');
-                //echo var_dump($salones);
-                $salon = get_term( $salones[0],'imgd_casino_salon');?>
-                <?php
-                $fecha = get_post_meta(get_the_ID() , 'imgd_casino_show_date');
+//piklist::pre($programa);
 
-                if (!empty($fecha)) {
-                    $fechatexto .= 'El '.$fecha[0];
-                }
-
-                $hora = get_post_meta(get_the_ID() , 'imgd_casino_show_hora', true);
-
-                if ($hora!=="") {
-                    $fechatexto .= ' a las '. $hora;
-                }
-                //piklist::pre($salon);
-                ?>
-                <?php
-                if (has_post_thumbnail()) { ?>
-                    <a href="<?php echo get_permalink(); ?>">
-                        <?php the_post_thumbnail(array(80,80),array('class'=>'img-circle')); ?>
-                    </a>
-                <?php } ?>
-                <a href="<?php echo get_permalink(); ?>">
-                    <?php if (!empty($salon->name)) {
-                        echo '<h4>'.$salon->name.'</h4>';
-                    }?>
-                    <h3><?php the_title(); ?></h3>
-                    <?php
-                    if ($fechatexto!=="") {
-                        echo '<h5>'.$fechatexto.'</h5>';
-                    }
-                    ?>
-                </a>
-                <?php //the_title( sprintf( '<h3><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
-
-                <!--               <a href='#' class='btn btn-primary btn-small'>Reservá tu mesa ahora</a>-->
-
-                <?php
-                //piklist::pre(get_post_meta( get_the_ID(), 'imgd_casino_show_ubicacion'));
-
-                $x++;
-                ?>
-            </li>
-            <?php
-        endwhile;
-        ?>
-    </ul>
-    </div>
-        <div class="panel-footer"></div>
-    </div>
+    if (has_post_thumbnail( $ID_programa )) { ?>
+        <a href="<?php echo $programa_url; ?>">
+            <?php echo get_the_post_thumbnail( $ID_programa, 'thumbnail', array('class'=>'img-circle') );  ?>
+        </a>
+    <?php } ?>
+    <h3><a href="<?php echo $programa_url; ?>">
+            <?php echo $programa_title; ?>
+    </a></h3>     
 <?php } ?>
-<?php wp_reset_query();
-
-
+<?php 
 echo $after_widget;

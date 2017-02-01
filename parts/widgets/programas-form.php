@@ -12,15 +12,20 @@ piklist('field', array(
 
 
 piklist('field', array(
-    'type' => 'select'
+'type' => 'select'
 ,'field' => 'imgd_programa_widget_seleccion'
-,'label' => __('Mostrar', 'imgd')
-,'description' => __('Selecciona el programa a mostrar','imgd')
-,'value' => 5
-,'attributes' => array(
-    'class' => 'small-text'
-    ,'step' => 1
-    ,'min' => 0
-    ,'max' => 12
-    )
+,'columns' => 12
+,'choices' =>  piklist(
+              get_posts(
+                 array(
+                  'post_type' => 'imgd_programa'
+                  ,'orderby' => 'post_date'
+                 )
+                 ,'objects'
+               )
+               ,array(
+                 'ID'
+                 ,'post_title'
+               )
+)
 ));
