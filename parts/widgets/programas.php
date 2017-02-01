@@ -4,7 +4,7 @@
  * Description: Widget para destacar un Programa de Turismo InterOceánico
  */
 
-piklist::pre($settings);
+//piklist::pre($settings);
 
 $title = "";
 $cant = "";
