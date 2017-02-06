@@ -48,5 +48,6 @@ nbproject
 node_modules
 dist
 *.codekit
+*.vscode
 
 codekit-config.json
