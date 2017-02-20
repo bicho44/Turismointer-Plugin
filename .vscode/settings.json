@@ -1,6 +1,6 @@
 // Place your settings in this file to overwrite default and user settings.
 {
     "editor.fontSize": 16,
-    "editor.fontFamily": "'Source Sans Pro', Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontFamily": "'Source Code Pro', Menlo, Monaco, 'Courier New', monospace",
   "css.lint.duplicateProperties": "warning",
 }

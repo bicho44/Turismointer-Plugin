@@ -24,8 +24,8 @@ If (isset($settings[ 'imgd_programa_thumb_format'][0])){
     $class = $settings[ 'imgd_programa_thumb_format'][0];
 }
 
-If (isset($settings[ 'imgd_programa_thumb_sizes'])){
-    $format_thumb = $settings[ 'imgd_programa_thumb_sizes'];
+If (isset($settings[ 'imgd_programa_thumb_sizes'][0])){
+    $format_thumb = $settings[ 'imgd_programa_thumb_sizes'][0];
 }
 // Cantidad de Show a Mostrar @todo agregar la opcion en el widget
 //if (isset($settings['imgd_shows_widget_cantidad']))  $cant = $settings['imgd_shows_widget_cantidad'][0];
