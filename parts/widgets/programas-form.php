@@ -1,5 +1,7 @@
 <?php
 
+ /* @todo: Hacer opciones de Random, Auto Últimos Programas o Selección */
+
 piklist('field', 
     array(
         'type' => 'text'

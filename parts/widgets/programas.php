@@ -3,6 +3,7 @@
  * Title: Programas Turismo InterOceánico
  * Description: Widget para destacar un Programa de Turismo InterOceánico
  * Standalone: true
+ * @TODO: Hacer opciones de Random, Auto Últimos Programas o Selección
  */
 
 //piklist::pre($settings);
